@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Sergio Anchundia</title>
+</head>
+<body>
+    
+    <div class>
+        <div class = "fieldset">
+            <fieldset>
+                <div class="inicio">
+                    <h1><strong>Formulario</strong></h1>
+                    <p>Ingrese los datos del cliente:</p>
+                </div>
+                <div class="clientes">
+                    <label for="identidad">C.I.</label>
+                    <input type="text" id="ci" placeholder="C.I. del cliente"><br><br>
+                    <label for="cliente">Cliente</label>
+                    <input type="text" id="nombre" required placeholder="Nombre del cliente"><br><br>
+                    <label for="email">Correo</label>
+                    <input type="text" id="correo" required placeholder="Ingrese aquí el correo"><br><br>
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" required placeholder="Ingrese aquí el número"><br><br>
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" required placeholder="Ingrese aquí la dirección"><br><br>
+                    <div class="boton">
+                        <button onclick="ingresar()">Ingresar</button>
+                        <button onclick="cancelar()">Cancelar</button>
+                    </div>
+                    <br>
+                </div>
+                <div class="tabla">
+                    <table id="tablaclientes">
+                        <caption>Datos de clientes</caption>
+                        <tr>
+                            <th>C.I.</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                        </tr>
+                    </table>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function ingresar(){
+            
+            var ci = document.getElementById("ci").value;
+            var nombre = document.getElementById("nombre").value;
+            var correo = document.getElementById("correo").value;
+            var telefono = document.getElementById("telefono").value;
+            var direccion = document.getElementById("direccion").value;
+           
+            if (ci == "" || nombre == "" || correo == "" || telefono == "" || direccion == "") {
+                alert("Algunos datos están vacios");
+            }else{
+                var tabla = document.getElementById("tablaclientes")
+                var nuevafila = tabla.insertRow();
+
+                var celdaci = nuevafila.insertCell();
+                celdaci.innerHTML = ci;
+
+                var celdanombre = nuevafila.insertCell();
+                celdanombre.innerHTML = nombre;
+
+                var celdacorreo = nuevafila.insertCell();
+                celdacorreo.innerHTML = correo;
+
+                var celdatelefono = nuevafila.insertCell();
+                celdatelefono.innerHTML = telefono;
+
+                var celdadireccion = nuevafila.insertCell();
+                celdadireccion.innerHTML = direccion;
+                cancelar();
+            }
+
+            
+        }
+
+        function cancelar(){
+            document.getElementById("ci").value = "";
+            document.getElementById("nombre").value = "";
+            document.getElementById("correo").value = "";
+            document.getElementById("telefono").value = "";
+            document.getElementById("direccion").value = "";
+        }
+	</script>
+</body>
+</html>
